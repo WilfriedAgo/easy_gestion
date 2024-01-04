@@ -1,11 +1,11 @@
 <?php
 
-    require_once('connection.php');
-    $req="SELECT * FROM articles WHERE id='".$_REQUEST['id']."'";
-    $result=mysqli_query($link, $req);
-    $ligne=mysqli_fetch_assoc($result);
+require_once('connection.php');
+$req = "SELECT * FROM articles WHERE id='".$_REQUEST['id']."'";
+$result = mysqli_query($link, $req);
+$ligne = mysqli_fetch_assoc($result);
 
-    require_once('function.php');
+require_once('function.php');
 
 ?>
 
@@ -24,26 +24,26 @@
             <div class="article_thumbnails">
                 <img src="<?php echo $ligne['apercu']; ?>" alt="photo de l'article">
                 <?php if ($ligne['en_solde'] == 1) {
-    echo "<span id='reduction'>-".($taux_reduction * 100)."%</span>";
-} ?>
+                    echo "<span id='reduction'>-".($taux_reduction * 100)."%</span>";
+                } ?>
             </div>
             <div class="article_detail">
                 <?php
-                    echo "<h2>".$ligne['nom']."</h2>"
-                        ."<h3 id='libelle'>".$ligne['libelle']."</h3>"
-                        ."<h3 id='quantite'>Quantité disponible :&nbsp;".$ligne['quantite']."</h3>"
-                        ."<div class='flex-row' id='prix_section'>";
+                                    echo "<h2>".$ligne['nom']."</h2>"
+                                        ."<h3 id='libelle'>".$ligne['libelle']."</h3>"
+                                        ."<h3 id='quantite'>Quantité disponible :&nbsp;".$ligne['quantite']."</h3>"
+                                        ."<div class='flex-row' id='prix_section'>";
 
-                    //Si l'article est en solde on affiche le prix normal, qu'on barre pour ensuite afficher le prix
-                    // en solde, et si l'article n'est pas en solde on affiche le justeprix tout court.
-                    if ($ligne['en_solde'] == 1) {
-                        echo "<h5 id='prix'>";
-                        echo $ligne['prix'];
-                        echo "&nbsp;XOF</h5>";
-                    }
-                    echo "<h5 id='prix_solde'>".$prix_solde."&nbsp;XOF</h5>"
-                        ."</div>";
-                ?>
+//Si l'article est en solde on affiche le prix normal, qu'on barre pour ensuite afficher le prix
+// en solde, et si l'article n'est pas en solde on affiche le justeprix tout court.
+if ($ligne['en_solde'] == 1) {
+    echo "<h5 id='prix'>";
+    echo $ligne['prix'];
+    echo "&nbsp;XOF</h5>";
+}
+echo "<h5 id='prix_solde'>".$prix_solde."&nbsp;XOF</h5>"
+    ."</div>";
+?>
                 <div class="decisionBtn">
                     <button>
                         <h3>Achetez cet article</h3>
