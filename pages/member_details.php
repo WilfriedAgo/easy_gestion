@@ -1,8 +1,8 @@
 <?php
-    require_once('connection.php');
-    $req="SELECT * FROM members WHERE id='".$_REQUEST['id']."'";
-    $result=mysqli_query($link, $req);
-    $ligne=mysqli_fetch_assoc($result);
+require_once('connection.php');
+$req = "SELECT * FROM members WHERE id='".$_REQUEST['id']."'";
+$result = mysqli_query($link, $req);
+$ligne = mysqli_fetch_assoc($result);
 ?>
 <div class="container" id="page4">
     <section>
@@ -37,7 +37,7 @@
                                   ."<tr><th>Sexe</th><td>".$sexe."</td></tr>"
                                   ."<tr><th>Email</th><td>".$ligne['email']."</td></tr>"
                                   ."<tr><th>Contact</th><td>".$ligne['contact']."</td></tr>";
-                        ?>
+?>
                     </tbody>
                 </table>
             </div>
@@ -45,8 +45,8 @@
                 <h4>Rôle dans le TP</h4>
                 <p class="task">
                     <?php
-                        echo $ligne['role'];
-                    ?>
+echo $ligne['role'];
+?>
                 </p>
             </div>
         </div>

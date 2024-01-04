@@ -336,10 +336,8 @@ th {
 
 /* Member_add Page */
 main .container#page3 {
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.7),
-      rgba(255, 255, 255, 0.7)
-    ),
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
     #eceff6 url(../assets/background/member-bg.jpg) no-repeat;
   background-size: contain;
   padding: 80px 100px;
@@ -358,7 +356,9 @@ main .form-area-border {
   height: 930px;
   border-radius: 10px;
   background: #fff;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 0, 0, 0.6);
+  box-shadow:
+    inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(0, 0, 0, 0.6);
 }
 
 main .inscription-form {
@@ -390,7 +390,9 @@ main form .form-area textarea {
   border-radius: 8px;
   padding: 10px;
   box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
-  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition:
+    border-color ease-in-out 0.15s,
+    box-shadow ease-in-out 0.15s;
 }
 
 main form .form-area input:focus,
@@ -398,9 +400,11 @@ main form .form-area textarea:focus,
 main form .form-area select:focus {
   border-color: #66afe9;
   outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+  -webkit-box-shadow:
+    inset 0 1px 1px rgba(0, 0, 0, 0.075),
     0 0 8px rgba(102, 175, 233, 0.6);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+  box-shadow:
+    inset 0 1px 1px rgba(0, 0, 0, 0.075),
     0 0 8px rgba(102, 175, 233, 0.6);
 }
 
@@ -464,7 +468,9 @@ main form button:hover {
   padding: 15px;
   text-align: center;
   position: absolute;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 0, 0, 0.6);
+  box-shadow:
+    inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(0, 0, 0, 0.6);
   cursor: pointer;
 }
 
@@ -508,7 +514,8 @@ main .profile .photo {
   width: 30%;
   height: 50vh;
   border-radius: 5px;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+  box-shadow:
+    inset 0 1px 1px rgba(0, 0, 0, 0.075),
     0 0 8px rgba(88, 88, 88, 0.6);
 }
 
@@ -525,7 +532,8 @@ main .profile .member-details .roletp-information {
   border-radius: 5px;
   margin: 10px auto;
   padding: 15px;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+  box-shadow:
+    inset 0 1px 1px rgba(0, 0, 0, 0.075),
     0 0 8px rgba(88, 88, 88, 0.6);
 }
 
@@ -699,7 +707,8 @@ main .article_details {
   height: 500px;
   border-radius: 10px;
   flex-wrap: unset;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+  box-shadow:
+    inset 0 1px 1px rgba(0, 0, 0, 0.075),
     0 0 8px rgba(88, 88, 88, 0.6);
   background: linear-gradient(
     rgba(255, 255, 255, 0.8),
@@ -866,9 +875,11 @@ footer form input {
 footer form input:focus {
   border-color: #66afe9;
   outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+  -webkit-box-shadow:
+    inset 0 1px 1px rgba(0, 0, 0, 0.075),
     0 0 8px rgba(102, 175, 233, 0.6);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+  box-shadow:
+    inset 0 1px 1px rgba(0, 0, 0, 0.075),
     0 0 8px rgba(102, 175, 233, 0.6);
 }
 

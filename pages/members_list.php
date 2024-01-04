@@ -1,21 +1,21 @@
 <?php
 
-    //Connection à la BDD easy_gestion
-        require_once('connection.php');
+//Connection à la BDD easy_gestion
+require_once('connection.php');
 
-    //On prépare une requête pour compter le nombre d'enregistrement dans la BDD.members
-        $nbmember="SELECT COUNT(*) AS nb FROM `members`";
+//On prépare une requête pour compter le nombre d'enregistrement dans la BDD.members
+$nbmember = "SELECT COUNT(*) AS nb FROM `members`";
 
-    //On exécute la requête
-        $result=mysqli_query($link, $nbmember);
+//On exécute la requête
+$result = mysqli_query($link, $nbmember);
 
-    //On convertir le résultat de la requête sous forme de tableau associatif
-        $members=mysqli_fetch_assoc($result);
+//On convertir le résultat de la requête sous forme de tableau associatif
+$members = mysqli_fetch_assoc($result);
 
-    if ($members['nb'] == 0) {//Si aucun n'enregistrement n'est encore fait
+if ($members['nb'] == 0) {//Si aucun n'enregistrement n'est encore fait
 
-        //On affiche la page de la liste vide
-        echo <<<'EOT'
+    //On affiche la page de la liste vide
+    echo <<<'EOT'
                 <div class="container" id="page2">
                     <section>
                         <a href="index.php?pg=home" class="backBtn flex-row">
@@ -38,9 +38,9 @@
                     </section>
                 </div>
                 EOT;
-    } else { //Si la BDD contient au moins 1 membre
+} else { //Si la BDD contient au moins 1 membre
 
-        echo <<<'EOT'
+    echo <<<'EOT'
                 <div class="container" id="page4">
                     <section>
                         <a href="index.php?pg=home" class="backBtn flex-row">
@@ -65,17 +65,17 @@
                                 <tbody>
                 EOT;
 
-        $req = 'SELECT * FROM `members`';
-        $result = mysqli_query($link, $req);
-        while ($ligne=mysqli_fetch_assoc($result)) {
-            echo '<tr>'
-            .'<td>'.$ligne['id'].'</td>'
-            ."<td><a href='index.php?pg=member_details&id=".$ligne['id']."'>".$ligne['nom']."</a></td>"
-            .'<td>'.$ligne['prenom'].'</td>'
-            .'<td>'.$ligne['contact'].'</td>'
-            .'</tr>';
-        }
-        echo <<<'EOT'
+    $req = 'SELECT * FROM `members`';
+    $result = mysqli_query($link, $req);
+    while ($ligne = mysqli_fetch_assoc($result)) {
+        echo '<tr>'
+        .'<td>'.$ligne['id'].'</td>'
+        ."<td><a href='index.php?pg=member_details&id=".$ligne['id']."'>".$ligne['nom']."</a></td>"
+        .'<td>'.$ligne['prenom'].'</td>'
+        .'<td>'.$ligne['contact'].'</td>'
+        .'</tr>';
+    }
+    echo <<<'EOT'
                                 </tbody>
                             </table>
                         </div>
@@ -85,4 +85,4 @@
                 </section>
             </div>
        EOT;
-    }
+}

@@ -1,21 +1,21 @@
 <?php
 
-    //Connection à la BDD easy_gestion
-        require_once('connection.php');
+//Connection à la BDD easy_gestion
+require_once('connection.php');
 
-    //On prépare une requête pour compter le nombre d'enregistrement dans la BDD.products
-        $nbmember="SELECT COUNT(*) AS nb FROM articles";
+//On prépare une requête pour compter le nombre d'enregistrement dans la BDD.products
+$nbmember = "SELECT COUNT(*) AS nb FROM articles";
 
-    //On exécute la requête
-        $result=mysqli_query($link, $nbmember);
+//On exécute la requête
+$result = mysqli_query($link, $nbmember);
 
-    //On convertir le résultat de la requête sous forme de tableau associatif
-        $members=mysqli_fetch_assoc($result);
+//On convertir le résultat de la requête sous forme de tableau associatif
+$members = mysqli_fetch_assoc($result);
 
-    if ($members['nb'] == 0) {//Si aucun n'enregistrement n'est encore fait
+if ($members['nb'] == 0) {//Si aucun n'enregistrement n'est encore fait
 
-        //On affiche la page de la liste vide
-        echo <<<'EOT'
+    //On affiche la page de la liste vide
+    echo <<<'EOT'
                 <div class="container" id="page5">
                     <section>
                         <a href="index.php?pg=home" class="backBtn flex-row">
@@ -38,12 +38,12 @@
                     </section>
                 </div>
             EOT;
-    } else { //Si la BDD contient au moins 1 article
+} else { //Si la BDD contient au moins 1 article
 
-        $req="SELECT * FROM articles";
-        $result=mysqli_query($link, $req);
+    $req = "SELECT * FROM articles";
+    $result = mysqli_query($link, $req);
 
-        echo <<<'EOT'
+    echo <<<'EOT'
                 <div class="container" id="page5">
                     <section>
                         <a href="index.php?pg=home" class="backBtn flex-row">
@@ -74,29 +74,29 @@
                                     <tbody>
             EOT;
 
-        while ($ligne = mysqli_fetch_assoc($result)) {
-            require('function.php');
+    while ($ligne = mysqli_fetch_assoc($result)) {
+        require('function.php');
 
-            echo '<tr>'
-                . "<td><input type='checkbox' name='id[]' value='" . $ligne['id'] . "'></td>"
-                . "<th scope='row'>" . $ligne['id'] . "</th>"
-                . "<td>" . $ligne['nom'] . "&nbsp;&nbsp;<a href='index.php?pg=edit&id=" . $ligne['id'] . "'><i class='fas fa-edit'></i></a></td>"
-                . "<td>" . $ligne['libelle'] . "</td>"
-                . "<td>" . $ligne['prix'] . "&nbsp;&nbsp;XOF</td>"
-                . "<td>&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp" . $ligne['quantite'] . "</td>"
-                . "<td>&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp" . $msg_solde . "</td>"
-                . "<td>";
-            if ($ligne['en_solde'] == 1) {
-                echo $prix_solde.'&nbsp;&nbsp;XOF';
-            } else {
-                echo '--------------';
-            }
-            echo "</td>"
-                . "<td>" . "<a href='index.php?pg=article_details&id=" . $ligne['id'] . "'id='italic'>Voir ce produit</a></td>"
-                . '</tr>';
+        echo '<tr>'
+            . "<td><input type='checkbox' name='id[]' value='" . $ligne['id'] . "'></td>"
+            . "<th scope='row'>" . $ligne['id'] . "</th>"
+            . "<td>" . $ligne['nom'] . "&nbsp;&nbsp;<a href='index.php?pg=edit&id=" . $ligne['id'] . "'><i class='fas fa-edit'></i></a></td>"
+            . "<td>" . $ligne['libelle'] . "</td>"
+            . "<td>" . $ligne['prix'] . "&nbsp;&nbsp;XOF</td>"
+            . "<td>&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp" . $ligne['quantite'] . "</td>"
+            . "<td>&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp" . $msg_solde . "</td>"
+            . "<td>";
+        if ($ligne['en_solde'] == 1) {
+            echo $prix_solde.'&nbsp;&nbsp;XOF';
+        } else {
+            echo '--------------';
         }
+        echo "</td>"
+            . "<td>" . "<a href='index.php?pg=article_details&id=" . $ligne['id'] . "'id='italic'>Voir ce produit</a></td>"
+            . '</tr>';
+    }
 
-        echo <<<'EOT'
+    echo <<<'EOT'
                                     </tbody>
                                 </table>
                         </div>
@@ -123,4 +123,4 @@
                 </section>
             </div>
         EOT;
-    }
+}
